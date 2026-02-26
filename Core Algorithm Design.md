@@ -44,7 +44,7 @@ Implemented as weighted linear combinations in `hand_sign_ar/recognizer.py::_sco
 
 For example, the open-palm score is:
 
-$$
+```math
 s_{\mathrm{open}}=
 0.18e_{\mathrm{thumb}}+
 0.20e_{\mathrm{index}}+
@@ -52,20 +52,13 @@ s_{\mathrm{open}}=
 0.20e_{\mathrm{ring}}+
 0.17e_{\mathrm{pinky}}+
 0.05s_{\mathrm{spread}}
-$$
+```
 
 ### 4) Decision Gate
 
 Let `best` be the top score and `second` the second-highest:
 
-$$
-\hat{g}=
-\begin{cases}
-\text{UNKNOWN}, & s_{(1)}<\tau \\
-\text{UNKNOWN}, & s_{(1)}-s_{(2)}<m \\
-g_{(1)}, & \text{otherwise}
-\end{cases}
-$$
+
 
 where $\tau=\text{threshold}$ and $m=\text{margin}$.
 
@@ -110,3 +103,4 @@ $$
 - `--smoothing`: temporal window size (larger = more stable, higher latency)
 
 - `--min-detect`, `--min-track`: detector/tracker confidence in MediaPipe
+
