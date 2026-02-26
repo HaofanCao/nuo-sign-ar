@@ -38,11 +38,11 @@ $$
 $$
 
 $$
-\text{finger\_ext}=\operatorname{clamp}\left(\frac{y_{\mathrm{pip}}-y_{\mathrm{tip}}+0.01}{0.20},\,0,\,1\right)
+\text{finger\_ext}=\text{clamp}\left(\frac{y_{\mathrm{pip}}-y_{\mathrm{tip}}+0.01}{0.20},\,0,\,1\right)
 $$
 
 $$
-\text{thumb\_ext}=\operatorname{clamp}\left(\frac{d(\mathbf{l}_{w},\mathbf{l}_{tt})-d(\mathbf{l}_{w},\mathbf{l}_{tj})}{0.30\cdot\text{palm\_size}},\,0,\,1\right)
+\text{thumb\_ext}=\text{clamp}\left(\frac{d(\mathbf{l}_{w},\mathbf{l}_{tt})-d(\mathbf{l}_{w},\mathbf{l}_{tj})}{0.30\cdot\text{palm\_size}},\,0,\,1\right)
 $$
 
 where $\mathbf{l}_{w}$ is wrist, $\mathbf{l}_{tt}$ is thumb tip, and $\mathbf{l}_{tj}$ is thumb joint.
@@ -84,9 +84,11 @@ Let `best` be the top score and `second` the second-highest:
 $$
 \hat{g}=
 \begin{cases}
+
 \text{UNKNOWN}, & s_{(1)}<\tau \\
 \text{UNKNOWN}, & s_{(1)}-s_{(2)}<m \\
 g_{(1)}, & \text{otherwise}
+
 \end{cases}
 $$
 
