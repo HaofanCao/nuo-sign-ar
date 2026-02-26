@@ -11,15 +11,15 @@ This demo uses a lightweight rule-based recognizer on top of MediaPipe 21-point 
 Given normalized landmarks `lm`:
 
 $$
-\text{palm\_size}=\max\left(d(\mathbf{l}_0,\mathbf{l}_9),\,d(\mathbf{l}_5,\mathbf{l}_{17}),\,10^{-6}\right)
+\text{PalmSize}=\max\left(d(\mathbf{l}_0,\mathbf{l}_9),\,d(\mathbf{l}_5,\mathbf{l}_{17}),\,10^{-6}\right)
 $$
 
 $$
-\text{finger\_ext}=\text{clamp}\left(\frac{y_{\mathrm{pip}}-y_{\mathrm{tip}}+0.01}{0.20},\,0,\,1\right)
+\text{FingerExt}=\text{clamp}\left(\frac{y_{\mathrm{pip}}-y_{\mathrm{tip}}+0.01}{0.20},\,0,\,1\right)
 $$
 
 $$
-\text{thumb\_ext}=\text{clamp}\left(\frac{d(\mathbf{l}_{w},\mathbf{l}_{tt})-d(\mathbf{l}_{w},\mathbf{l}_{tj})}{0.30\cdot\text{palm\_size}},\,0,\,1\right)
+\text{ThumbExt}=\text{clamp}\left(\frac{d(\mathbf{l}_{w},\mathbf{l}_{tt})-d(\mathbf{l}_{w},\mathbf{l}_{tj})}{0.30\cdot\text{PalmSize}},\,0,\,1\right)
 $$
 
 where $\mathbf{l}_{w}$ is wrist, $\mathbf{l}_{tt}$ is thumb tip, and $\mathbf{l}_{tj}$ is thumb joint.
@@ -46,12 +46,12 @@ For example, the open-palm score is:
 
 $$
 s_{\mathrm{open}}=
-0.18\,e_{\mathrm{thumb}}+
-0.20\,e_{\mathrm{index}}+
-0.20\,e_{\mathrm{middle}}+
-0.20\,e_{\mathrm{ring}}+
-0.17\,e_{\mathrm{pinky}}+
-0.05\,s_{\mathrm{spread}}
+0.18e_{\mathrm{thumb}}+
+0.20e_{\mathrm{index}}+
+0.20e_{\mathrm{middle}}+
+0.20e_{\mathrm{ring}}+
+0.17e_{\mathrm{pinky}}+
+0.05s_{\mathrm{spread}}
 $$
 
 ### 4) Decision Gate
@@ -61,11 +61,9 @@ Let `best` be the top score and `second` the second-highest:
 $$
 \hat{g}=
 \begin{cases}
-
 \text{UNKNOWN}, & s_{(1)}<\tau \\
 \text{UNKNOWN}, & s_{(1)}-s_{(2)}<m \\
 g_{(1)}, & \text{otherwise}
-
 \end{cases}
 $$
 
@@ -110,4 +108,5 @@ $$
 - `--threshold`: minimum accepted top score
 - `--margin`: minimum gap between top-1 and top-2 scores
 - `--smoothing`: temporal window size (larger = more stable, higher latency)
+
 - `--min-detect`, `--min-track`: detector/tracker confidence in MediaPipe
