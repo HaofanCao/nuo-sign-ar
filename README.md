@@ -9,9 +9,9 @@ This repository focuses on runnable demo implementation and reproducible scripts
 
 ## Demo Preview
 
-| AR Interface Preview | Parameter Benchmark Preview |
-| --- | --- |
-| ![AR UI preview](outputs/ar_ui_preview.png) | ![Parameter comparison](outputs/parameter_comparison.png) |
+| AR Interface Preview |
+| --- |
+| ![AR UI preview](outputs/ar_ui_preview.png) |
 
 ## Features
 
@@ -140,3 +140,4 @@ Generate simulated UI preview image:
 
 This project is licensed under the MIT License.  
 See [LICENSE](LICENSE) for details.
+
