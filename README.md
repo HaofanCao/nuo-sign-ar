@@ -46,7 +46,7 @@ This repository focuses on runnable demo implementation and reproducible scripts
 ## Requirements
 
 - Windows 10/11 (PowerShell commands are provided)
-- Python 3.10+
+- Python 3.10-3.12
 - Webcam
 
 ## Quick Start
@@ -126,6 +126,9 @@ Generate simulated UI preview image:
 - Error: `A module that was compiled using NumPy 1.x cannot be run in NumPy 2.x`
   - Cause: mixed global/conda package versions.
   - Fix: use this project's `.venv` only and reinstall dependencies.
+- Error: `numpy-*.tar.gz` + `Unknown compiler(s)` / `metadata-generation-failed`
+  - Cause: using Python 3.13 (or no compatible wheel), so pip falls back to building NumPy from source.
+  - Fix: install Python 3.11/3.12, recreate `.venv`.
 - Error: `module 'mediapipe' has no attribute 'solutions'`
   - Cause: MediaPipe API differences across versions.
   - Fix: use `--backend tasks` or `--backend auto`.
@@ -140,4 +143,5 @@ Generate simulated UI preview image:
 
 This project is licensed under the MIT License.  
 See [LICENSE](LICENSE) for details.
+
 
