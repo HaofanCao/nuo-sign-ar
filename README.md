@@ -1,6 +1,6 @@
 ﻿# AR Hand-Sign Demo for Nuo Opera
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![Python](https://img.shields.io/badge/Python-3.10--3.12-blue)
 ![Platform](https://img.shields.io/badge/Platform-Windows-0078D4)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -143,5 +143,3 @@ Generate simulated UI preview image:
 
 This project is licensed under the MIT License.  
 See [LICENSE](LICENSE) for details.
-
-
